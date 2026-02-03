@@ -1,0 +1,20 @@
+{
+  "title": "SpawnerX",
+  "pages": [
+    "---[FiCompass]Comece Aqui---",
+    "index",
+    "instalacao",
+    "configuracao",
+    "---[FiGrid]Recursos---",
+    "spawners",
+    "menu-interacao",
+    "loja",
+    "placeholders",
+    "---[FiShield]Administração---",
+    "comandos-permissoes",
+    "---[FiLifeBuoy]Suporte---",
+    "faq",
+    "---[FiExternalLink]Links---",
+    "[Download](/download)"
+  ]
+}

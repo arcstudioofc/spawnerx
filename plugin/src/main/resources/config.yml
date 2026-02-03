@@ -1,0 +1,92 @@
+#   _____                                   __   __
+#  / ____|                                  \ \ / /
+# | (___  _ __   __ ___      ___ __   ___ _ _\ V / 
+#  \___ \| '_ \ / _` \ \ /\ / / '_ \ / _ \ '__> <  
+#  ____) | |_) | (_| |\ V  V /| | | |  __/ | / . \ 
+# |_____/| .__/ \__,_| \_/\_/ |_| |_|\___|_|/_/ \_\
+#        | |                                       
+#        |_|                                       
+#
+# Configuration file for the Spawner Break and Explosion System Plugin
+# Version: 1.0.0
+# By: Israel R. Jatobá (https://yeytaken.vercel.app)
+# ------------------------------------------------------
+# Language: English (en_US)
+# Available Languages:
+#  - English (en_US)
+#  - Portuguese (pt_BR)
+# ------------------------------------------------------
+# This configuration handles:
+# 1. Break System - tools, drops, and silk touch settings
+# 2. Explosion System - drop behavior for destroyed spawners
+# 3. Spawner System - stacking, display, lore
+# 4. Rarity Settings - defines rarity of mobs in farms/spawners
+
+locale: en_US
+
+# ------------------------------------------------------
+# Break System
+# ------------------------------------------------------
+# Controls how spawners are broken with tools, 
+# whether silk touch works, and drop chances.
+break:
+  tools: ["DIAMOND_PICKAXE", "NETHERITE_PICKAXE"]  # Allowed tools to break spawners
+  silk-touch: true                                 # Whether silk touch preserves the spawner
+  drop-to-inventory: true                          # Drop directly into player inventory
+  drop-chance: 100.0                               # Chance (%) for spawner to drop when broken
+  allow-break-without-requirements: true           # Allow breaking even without required tools
+
+# ------------------------------------------------------
+# Explosion System
+# ------------------------------------------------------
+# Configures behavior when a spawner is destroyed by explosions
+explosion:
+  allow-drop: true                                 # Should spawner drop when exploded
+  drop-to-inventory: true                          # Drop directly to inventory instead of world
+  drop-chance: 50.0                                # Chance (%) of spawner drop
+
+# ------------------------------------------------------
+# Spawner System Configuration
+# ------------------------------------------------------
+# Controls how spawner items behave, stacking, display, and lore
+spawner:
+  distance-active: 64             # Active if players are nearby (vanilla spawner requirement)
+  stacking-enabled: true          # Enable stacking of spawner items
+  max-stack-size: 64              # Maximum number of spawners per stack
+  display-name: "&8[{rarity_color}&l{rarity}&8] &e{type} Spawner"  # Base name in inventory (stack prefix added by plugin)
+  lore:
+    - "&7Type: &f{type}"
+    - "&7Rarity: {rarity_color}{rarity}"
+    - "&7Stack: &e{stack_size}"
+  # Shop settings were moved to shop.yml
+
+# ------------------------------------------------------
+# Rarity Settings for Farms
+# ------------------------------------------------------
+# Defines the rarity and color of each mob type for farms/spawners
+# Placeholders:
+# {rarity} → Name of rarity (Common, Uncommon, Rare, Epic, Legendary)
+# {rarity_color} → Color code associated with the rarity
+rarities:
+  COW: "&fCommon"            # Basic farm mob
+  PIG: "&fCommon"
+  SHEEP: "&fCommon"
+  CHICKEN: "&fCommon"
+  ZOMBIE: "&aRare"       # Slightly rarer, drops XP
+  SKELETON: "&aRare"
+  CREEPER: "&6Epic"           # Rare drop like gunpowder
+  SPIDER: "&aRare"
+  BLAZE: "&dSpecial"             # Harder to farm, valuable drops
+  WITCH: "&dSpecial"
+  ENDERMAN: "&6Epic"
+  IRON_GOLEM: "&bLegendary"   # Very rare, high-value drops
+  DEFAULT: "&fCommon"         # Default rarity for unspecified mobs
+
+# ------------------------------------------------------
+# Rarity Colors Reference
+# &f → White → Common
+# &a → Green → Uncommon
+# &9 → Blue → Rare
+# &5 → Purple → Epic
+# &6 → Gold → Legendary
+# ------------------------------------------------------

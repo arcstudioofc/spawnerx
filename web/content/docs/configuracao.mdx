@@ -1,0 +1,98 @@
+---
+title: Configuração (config.yml)
+description: Referência completa de todas as opções do config.yml.
+icon: FiSettings
+---
+
+<Callout type="info" title="Dica">
+  O SpawnerX migra automaticamente opções antigas (ex.: `break.required-tool` → `break.tools`).
+</Callout>
+
+## Locale
+
+| Chave | Tipo | Padrão | Descrição |
+| --- | --- | --- | --- |
+| `locale` | string | `en_US` | Idioma das mensagens. Aceita `pt_BR` e `en_US`. |
+
+> O locale configurado é carregado de `plugins/SpawnerX/locale/`. Se a chave não existir, o fallback é `en_US`.
+
+## Break System
+
+| Chave | Tipo | Padrão | Descrição |
+| --- | --- | --- | --- |
+| `break.tools` | lista | `DIAMOND_PICKAXE`, `NETHERITE_PICKAXE` | Ferramentas permitidas para quebrar spawners. |
+| `break.silk-touch` | boolean | `true` | Exige Silk Touch para quebrar. |
+| `break.drop-to-inventory` | boolean | `true` | Entrega o drop direto no inventário (se cheio, cai no chão). |
+| `break.drop-chance` | número | `100.0` | Chance de drop (%) ao quebrar. |
+| `break.allow-break-without-requirements` | boolean | `true` | Permite quebrar sem requisitos, porém **sem drop**. |
+
+### Comportamento detalhado
+
+- Se **não** tiver permissão `spawnerx.spawner.break`, a quebra é cancelada.
+- Se faltar ferramenta ou Silk Touch:
+  - Com `allow-break-without-requirements = true`: quebra ocorre, mas não há drop.
+  - Com `false`: a quebra é cancelada.
+ - Se `break.tools` estiver vazio, o plugin assume **DIAMOND_PICKAXE**.
+
+## Explosion System
+
+| Chave | Tipo | Padrão | Descrição |
+| --- | --- | --- | --- |
+| `explosion.allow-drop` | boolean | `true` | Spawners podem dropar ao explodir. |
+| `explosion.drop-to-inventory` | boolean | `true` | **Configuração existente**, mas o drop por explosão atualmente é sempre no chão. |
+| `explosion.drop-chance` | número | `50.0` | Chance de drop (%) **por spawner no stack**. |
+
+## Spawner System
+
+| Chave | Tipo | Padrão | Descrição |
+| --- | --- | --- | --- |
+| `spawner.distance-active` | número | `64` | Distância (em blocos) para considerar o spawner ativo. |
+| `spawner.stacking-enabled` | boolean | `true` | Ativa o empilhamento de spawners. |
+| `spawner.max-stack-size` | número | `64` | Limite máximo de stack (item e mundo). |
+| `spawner.display-name` | string | `&8[{rarity_color}&l{rarity}&8] &e{type} Spawner` | Nome base do item (o plugin adiciona prefixo `{stack}x`). |
+| `spawner.lore` | lista | *(ver config)* | Lore do item com placeholders. |
+
+### Placeholders para nome/lore
+
+- `{type}`: Nome amigável do mob (ex.: Zumbi)
+- `{rarity}`: Texto da raridade (sem cor)
+- `{rarity_color}`: Código de cor da raridade
+- `{stack_size}`: Tamanho do stack no NBT
+
+> **Importante**: o plugin sempre prefixa `{stack_size}x` no display name, então evite repetir isso manualmente.
+
+## Raridades
+
+As raridades são definidas em `rarities`:
+
+```yml
+rarities:
+  COW: "&fCommon"
+  PIG: "&fCommon"
+  ZOMBIE: "&aRare"
+  CREEPER: "&6Epic"
+  IRON_GOLEM: "&bLegendary"
+  DEFAULT: "&fCommon"
+```
+
+- A chave é o `EntityType` do Bukkit.
+- O valor pode conter códigos de cor `&`.
+- Quando o mob não está na lista, usa `DEFAULT`.
+
+## Migrações automáticas
+
+O plugin tenta migrar configurações antigas automaticamente:
+
+- `break.required-tool` → `break.tools`
+- `break.require-silk-touch` → `break.silk-touch`
+- `spawner.rarities` → `rarities`
+- `spawner.shop` do config → `shop.yml`
+
+## Print sugerido
+
+<img
+  src="/images/docs/configuracao/config-editor.png"
+  alt="Configuração aberta no editor"
+/>
+
+**Como tirar**: print do `config.yml` aberto destacando `break`, `spawner` e `rarities`.

@@ -1,0 +1,132 @@
+---
+title: Loja de Spawners (shop.yml)
+description: Configuração completa da loja e layout do inventário.
+icon: FiShoppingBag
+---
+
+<Callout type="info" title="Moeda">
+  A loja usa **XP total** (pontos), não apenas o nível visível.
+</Callout>
+
+## Ativação
+
+| Chave | Tipo | Padrão | Descrição |
+| --- | --- | --- | --- |
+| `spawner.shop.enabled` | boolean | `true` | Liga/desliga a loja. |
+| `spawner.shop.currency` | string | `XP` | Moeda exibida (apenas XP é suportado). |
+
+## Layout do inventário
+
+A loja usa um inventário 6x9 (54 slots). Alguns slots são reservados:
+
+| Slot | Função |
+| --- | --- |
+| `4` | Item de título |
+| `45` | Página anterior |
+| `48` | Voltar |
+| `49` | Indicador de página |
+| `53` | Próxima página |
+
+**Slots de conteúdo (itens e categorias):**
+
+```
+10, 11, 12, 13, 14, 15, 16
+19, 20, 21, 22, 23, 24, 25
+28, 29, 30, 31, 32, 33, 34
+```
+
+Se você definir um item em um slot reservado, ele cai para o modo automático.
+
+## Navegação e fillers
+
+- `navigation.prev-head`, `next-head`, `back-head`: cabeças base64.
+- `navigation.title-item`: item no topo (slot 4).
+- `navigation.filler-primary`, `filler-secondary`, `filler-accent`: preenchimento visual.
+
+> **Heads base64**: use o valor `Value` de sites de heads e cole em uma única linha.
+
+## Categorias
+
+As categorias ficam em `spawner.shop.categories`. Campos disponíveis:
+
+| Campo | Tipo | Descrição |
+| --- | --- | --- |
+| `title` | string | Nome exibido da categoria. |
+| `icon-head` | string | Base64 da cabeça (prioridade máxima). |
+| `icon-material` | string | Material alternativo se não usar head. |
+| `slot` | number | Slot fixo (opcional). |
+| `page` | number | Página fixa (opcional). |
+| `items` | map | Lista de spawners e preços. |
+
+**Prioridade de ícone**: `icon-head` → `icon-material` → fallback (BOOK).
+
+## Itens
+
+Cada item de spawner aceita:
+
+| Campo | Tipo | Descrição |
+| --- | --- | --- |
+| `price` | number | Preço em XP (obrigatório). |
+| `head` | string | Base64 opcional para a cabeça do item. |
+| `material` | string | Material opcional (se não usar head). |
+| `slot` | number | Slot manual (opcional). |
+| `page` | number | Página manual (opcional). |
+| `lore` | lista/string | Lore customizada com `\n` para quebra. |
+
+### Placeholders de lore
+
+- `{price}`
+- `{currency}`
+- `{type}`
+- `{display_name}`
+
+## Exemplo de categoria
+
+```yml
+spawner:
+  shop:
+    enabled: true
+    currency: XP
+    categories:
+      FARM:
+        title: "&7Farm Spawners"
+        icon-material: "HAY_BLOCK"
+        slot: 10
+        page: 0
+        items:
+          COW:
+            price: 200
+          CHICKEN:
+            price: 150
+```
+
+## Compra
+
+- Requer permissão `spawnerx.shop`.
+- Se o jogador não tiver XP suficiente, o plugin informa o preço necessário.
+- O spawner comprado é criado pelo SpawnerX com stack interno `1`.
+
+## Categorias padrão (exemplo inicial)
+
+O `shop.yml` padrão já vem com categorias e preços iniciais:
+
+- **FARM**: COW (200), CHICKEN (150), PIG (200), SHEEP (200), RABBIT (250)
+- **COMBAT**: ZOMBIE (350), SKELETON (350), SPIDER (400), CREEPER (1500)
+- **NETHER**: BLAZE (3000), MAGMA_CUBE (2200), WITHER_SKELETON (5000), GHAST (6000)
+- **RARE**: ENDERMAN (5500), WITCH (4500), IRON_GOLEM (8000)
+
+## Prints sugeridos
+
+<img
+  src="/images/cap_1.png"
+  alt="Loja - Categorias"
+/>
+
+**Como tirar**: página inicial da loja mostrando as categorias.
+
+<img
+  src="/images/cap_2.png"
+  alt="Loja - Itens"
+/>
+
+**Como tirar**: página de uma categoria com preços e navegação.

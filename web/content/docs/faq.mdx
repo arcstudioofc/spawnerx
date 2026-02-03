@@ -1,0 +1,53 @@
+---
+title: FAQ
+description: Dúvidas comuns e soluções rápidas.
+icon: FiHelpCircle
+---
+
+<Callout type="info" title="Resumo rápido">
+  A maioria das dúvidas se resolve em `config.yml`, `shop.yml` e `locale/*.yml`.
+</Callout>
+
+## Onde ficam os arquivos de configuração?
+
+Após o primeiro boot, o plugin cria `plugins/SpawnerX/` com:
+
+- `config.yml`
+- `shop.yml`
+- `locale/pt_BR.yml`
+- `locale/en_US.yml`
+
+## Por que o spawner não está ativo?
+
+- Verifique `spawner.distance-active`.
+- Confirme se há jogador dentro da distância configurada.
+- No menu, o status **Inativo** aparece quando não há players próximos.
+
+## Por que o drop não caiu ao quebrar?
+
+- `break.drop-chance` pode ter falhado.
+- Se você não tinha ferramenta/silk touch e `allow-break-without-requirements = true`, a quebra ocorre **sem drop**.
+
+## Por que não empilha?
+
+- `spawner.stacking-enabled` deve estar `true`.
+- O stack máximo é `spawner.max-stack-size`.
+- O empilhamento no inventário só ocorre para spawners do **mesmo tipo**.
+
+## O drop por explosão vai para o inventário?
+
+Não. Mesmo com `explosion.drop-to-inventory` no config, o drop atualmente é sempre no chão.
+
+## A loja é obrigatória?
+
+Não. Você pode desativar em `shop.yml` com `spawner.shop.enabled: false`.
+
+## Como mudar o idioma?
+
+- Troque `locale` no `config.yml` para `pt_BR` ou `en_US`.
+- Edite o arquivo de locale correspondente em `plugins/SpawnerX/locale/`.
+- Use `/spawnerx reload`.
+
+<Callout type="warn" title="Dica">
+  Sempre use `/spawnerx reload` após alterar arquivos.
+</Callout>

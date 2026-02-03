@@ -1,0 +1,92 @@
+---
+title: Placeholders
+description: Lista completa de placeholders usados no config e locale.
+icon: FiCode
+---
+
+<Callout type="info" title="Cores">
+  O SpawnerX aceita códigos de cor com `&` (ex.: `&a`, `&c`, `&6`).
+</Callout>
+
+## Config.yml
+
+### `spawner.display-name` e `spawner.lore`
+
+| Placeholder | Descrição |
+| --- | --- |
+| `{type}` | Nome amigável do mob (ex.: Zumbi) |
+| `{rarity}` | Texto da raridade (sem cor) |
+| `{rarity_color}` | Código de cor da raridade |
+| `{stack_size}` | Stack interno do spawner |
+
+> O plugin sempre prefixa `{stack_size}x` no display name.
+
+## Locale (locale/*.yml)
+
+### Comandos
+
+| Chave | Placeholders |
+| --- | --- |
+| `commands.give.success` | `{amount}`, `{type}`, `{player}` |
+| `commands.give.received` | `{amount}`, `{type}` |
+| `commands.give.invalid-mob` | `{type}` |
+| `commands.give.player-not-found` | `{player}` |
+| `general.invalid-usage` | `{usage}` |
+
+### Break / Explosão
+
+| Chave | Placeholders |
+| --- | --- |
+| `break.wrong-tool` | `{tool}` |
+| `break.success` | `{type}` |
+| `break.success-no-req` | `{type}` |
+| `break.fail-chance` | `{type}` |
+| `explosion.destroyed` | `{type}` |
+
+### Spawner
+
+| Chave | Placeholders |
+| --- | --- |
+| `spawner.placed` | `{type}` |
+| `spawner.stacked` | `{type}`, `{amount}` |
+| `spawner.lore.type` | `{type}` |
+| `spawner.lore.rarity` | `{rarity}`, `{rarity_color}` |
+| `spawner.lore.stack` | `{amount}` |
+
+### Menu de interação
+
+| Chave | Placeholders |
+| --- | --- |
+| `menu.title` | `{type}` |
+| `menu.info-item.name` | `{type}` |
+| `menu.info-item.environment` | `{status}` |
+| `menu.dynamic.spawn-tick` | `{delay}` |
+| `menu.dynamic.spawn-time` | `{min}`, `{max}` |
+| `menu.dynamic.status` | `{status}` |
+| `menu.owner-item.name` | `{player}` |
+
+### Loja
+
+| Chave | Placeholders |
+| --- | --- |
+| `shop.title.category` | `{category}`, `{page}`, `{pages}` |
+| `shop.item.name` | `{display_name}`, `{type}` |
+| `shop.item.lore` | `{price}`, `{currency}` |
+| `shop.nav.page` | `{page}`, `{pages}` |
+| `shop.buy.success` | `{type}`, `{price}`, `{currency}` |
+| `shop.buy.not-enough-xp` | `{price}`, `{currency}` |
+
+## shop.yml (lore customizada)
+
+No `shop.yml`, você pode definir `lore` customizada por item usando:
+
+- `{price}`
+- `{currency}`
+- `{type}`
+- `{display_name}`
+
+Use `\n` para quebrar linhas dentro de `lore` em string única.
+
+<Callout type="warn" title="Prefix">
+  O placeholder `{prefix}` é substituído automaticamente em todas as mensagens de locale.
+</Callout>

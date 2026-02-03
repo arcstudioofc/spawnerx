@@ -1,0 +1,92 @@
+# SpawnerX - English (US) Messages
+
+prefix: "&8[&f&lSpawner&c&lX&8]&r"
+
+# Commands
+commands:
+  reload:
+    success: "{prefix} &aConfiguration reloaded successfully!"
+    error: "{prefix} &cError reloading configuration!"
+  give:
+    success: "{prefix} &aYou gave &e{amount}x {type} spawner to &e{player}&a!"
+    received: "{prefix} &aYou received &e{amount}x {type} spawner!"
+    invalid-mob: "{prefix} &cInvalid mob type: &e{type}"
+    player-not-found: "{prefix} &cPlayer not found: &e{player}"
+  help:
+    header: "&8&m          &r &eSpawnerX - Help &8&m          "
+    reload: "&e/spawnerx reload &7- Reloads the configuration"
+    give: "&e/spawnerx give <player> <mob> &7- Gives a spawner"
+    shop: "&e/spawnerx shop &7- Opens the spawner shop"
+    help: "&e/spawnerx help &7- Shows this help"
+    footer: "&8&m                                    "
+  no-permission: "{prefix} &cYou do not have permission to use this command!"
+
+# Break System
+break:
+  wrong-tool: "{prefix} &cYou need to use a &e{tool} &cto break spawners!"
+  no-silk-touch: "{prefix} &cYou need &eSilk Touch &cto break spawners!"
+  no-permission: "{prefix} &cYou do not have permission to break spawners!"
+  success: "{prefix} &aYou broke a &e{type} &aspawner!"
+  success-no-req: "{prefix} &eYou broke the &6{type} &espawner without meeting requirements!"
+  fail-chance: "{prefix} &cThe &e{type} &cspawner was destroyed during breaking!"
+
+# Explosion System
+explosion:
+  destroyed: "{prefix} &cA &e{type} &cspawner was destroyed by an explosion!"
+
+# Spawner System
+spawner:
+  placed: "{prefix} &aYou placed a &e{type} &aspawner!"
+  stacked: "{prefix} &aYou stacked a &e{type} &aspawner! Total: &e{amount}"
+  lore:
+    info: "&7Information"
+    type: "&7Type: &f{type}"
+    rarity: "&7Rarity: {rarity_color}{rarity}"
+    stack: "&7Stack: &e{amount}"
+
+# General
+general:
+  invalid-usage: "{prefix} &cIncorrect usage! Use: &e{usage}"
+
+# Interaction Menu
+menu:
+  title: "&8Information: &e{type}"
+  info-item:
+    name: "&e{type} Spawner"
+    environment: "&7Environment: {status}"
+  status:
+    valid: "&aValid"
+    invalid: "&cInvalid"
+  dynamic:
+    title: "&eReal-Time Stats"
+    spawn-tick: "&7Spawn tick: &e{delay} ticks"
+    spawn-time: "&7Spawn interval: &e{min}s - {max}s"
+    status: "&7Status: {status}"
+    status-active: "&aActive"
+    status-inactive: "&cInactive (No players)"
+    footer: "&8(Updating in real time)"
+  owner-item:
+    name: "&f{player}"
+    lore: "&7This spawner was placed by."
+
+# Shop
+shop:
+  disabled: "{prefix} &cThe spawner shop is currently disabled!"
+  only-players: "{prefix} &cOnly players can use this command!"
+  title:
+    categories: "&8Spawner Shop"
+    category: "&8{category} &7(Page {page}/{pages})"
+  category:
+    lore: "&7Click to view"
+  item:
+    name: "{display_name}"
+    lore: "&7Price: &e{price} {currency}\\n&bClick to buy"
+  nav:
+    prev: "&ePrevious Page"
+    next: "&eNext Page"
+    back: "&eBack to Categories"
+    page: "&7Page &e{page}&7/&e{pages}"
+  buy:
+    success: "{prefix} &aYou bought a &e{type} &afor &e{price} {currency}&a!"
+    not-enough-xp: "{prefix} &cYou need &e{price} {currency} &cto buy this!"
+    invalid-item: "{prefix} &cInvalid shop item!"

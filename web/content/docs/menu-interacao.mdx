@@ -1,0 +1,43 @@
+---
+title: Menu de Interação
+description: Como funciona o menu informativo do spawner.
+icon: FiMousePointer
+---
+
+<Callout type="info" title="Atalho">
+  Abra o menu com **Shift + botão direito** em um spawner.
+</Callout>
+
+## O que o menu mostra
+
+O menu é apenas informativo e bloqueia qualquer movimentação de itens. Ele atualiza automaticamente a cada **10 ticks (0,5s)**.
+
+<Callout type="info" title="Owner">
+  A cabeça do owner só aparece se o spawner foi colocado por um item do SpawnerX.
+</Callout>
+
+### Itens principais
+
+- **Slot 13 (centro)**: spawner com nome, raridade, stack e status do ambiente.
+- **Slot 11 (esquerda)**: informações dinâmicas (delay, intervalo e status de ativação).
+- **Slot 15 (direita)**: cabeça do jogador que colocou o spawner (owner), se disponível.
+
+### Status de ambiente (slot 13)
+
+O status usa dois critérios:
+
+1. **Jogadores próximos** (distância `spawner.distance-active`).
+2. **Cap de entidades** (se o número de mobs do mesmo tipo no alcance do spawner é menor que `maxNearbyEntities`).
+
+Se ambos estiverem OK, o menu mostra **Ambiente Válido**.
+
+### Status ativo (slot 11)
+
+O status “Ativo/Inativo” é baseado **apenas** na presença de jogadores no alcance.
+
+
+<img
+  src="/images/2026-02-03_17.08.19.png"
+  alt="Menu completo com informações"
+/>
+

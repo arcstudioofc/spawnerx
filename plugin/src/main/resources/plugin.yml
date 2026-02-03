@@ -1,0 +1,26 @@
+name: SpawnerX
+version: '1.0.0'
+main: com.spawnerx.SpawnerX
+api-version: '1.21'
+author: Israel R. Jatobá
+description: Plugin completo para gerenciamento de spawners
+
+commands:
+  spawnerx:
+    description: Comando principal do SpawnerX
+    aliases: [sx]
+    usage: /<command> [reload|give|shop|help]
+
+permissions:
+  spawnerx.admin:
+    description: Permite uso de comandos administrativos
+    default: op
+  spawnerx.shop:
+    description: Permite abrir o shop de spawners
+    default: true
+  spawnerx.spawner.break:
+    description: Permite quebrar spawners respeitando requisitos
+    default: true
+  spawnerx.spawner.break.explosion:
+    description: Permite drop de spawner ao ser destruído por explosão
+    default: true

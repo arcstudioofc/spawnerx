@@ -1,0 +1,74 @@
+---
+title: SpawnerX
+description: Documentação oficial do plugin SpawnerX para Bukkit/Paper.
+icon: FiBookOpen
+---
+
+<Callout type="info" title="Compatibilidade">
+  Bukkit/Paper 1.21.x (prioridade 1.21.1) e Java 25 ou superior.
+</Callout>
+
+## Visão geral
+
+**SpawnerX** é um plugin completo para gerenciamento de spawners. Ele foca em controle preciso de quebra, colocação, empilhamento, raridades, menus informativos e uma loja baseada em XP.
+
+## Vídeo rápido
+
+<video
+  className="w-full rounded-2xl border border-fd-border bg-fd-card"
+  src="/videos/gravacao_de_tela_spawnerx.mp4"
+  controls
+  playsInline
+/>
+
+## O que o plugin cobre
+
+- Menu de interação com informações em tempo real (Shift + botão direito).
+- Sistema de quebra configurável (ferramentas, silk touch, chance e permissões).
+- Sistema de explosões com chance de drop por spawner no stack.
+- Stacking inteligente em itens e no mundo, com holograma e escala de spawn.
+- Loja de spawners com categorias, itens e navegação customizável.
+- Locale externo com fallback e placeholders consistentes.
+
+## Estrutura de arquivos (gerados no servidor)
+
+- `plugins/SpawnerX/config.yml`
+- `plugins/SpawnerX/shop.yml`
+- `plugins/SpawnerX/locale/pt_BR.yml`
+- `plugins/SpawnerX/locale/en_US.yml`
+
+<Callout type="warn" title="Locale padrão">
+  O `config.yml` vem com `locale: en_US` por padrão. Ajuste para `pt_BR` se quiser as mensagens em português.
+</Callout>
+
+![holograma-stack](/images/2026-02-03_17.08.44.png)
+![menu-interacao](/images/2026-02-03_17.08.19.png)
+
+## Comece por aqui
+
+<Cards>
+  <Card title="Instalação" href="/docs/instalacao">
+    Passo a passo da instalação, primeira execução e verificação.
+  </Card>
+  <Card title="Configuração" href="/docs/configuracao">
+    Detalhes de cada opção do config.yml.
+  </Card>
+  <Card title="Spawners & Stacking" href="/docs/spawners">
+    Quebra, colocação, empilhamento, hologramas e distância ativa.
+  </Card>
+  <Card title="Menu de Interação" href="/docs/menu-interacao">
+    Layout do menu, status em tempo real e dicas de uso.
+  </Card>
+  <Card title="Loja" href="/docs/loja">
+    Categorias, itens, slots e navegação do shop.yml.
+  </Card>
+  <Card title="Comandos" href="/docs/comandos-permissoes">
+    Comandos, permissões e exemplos práticos.
+  </Card>
+  <Card title="Placeholders" href="/docs/placeholders">
+    Lista completa de placeholders usados no config e locale.
+  </Card>
+  <Card title="FAQ" href="/docs/faq">
+    Soluções rápidas para dúvidas comuns.
+  </Card>
+</Cards>

@@ -1,0 +1,92 @@
+# SpawnerX - Mensagens em Português (Brasil)
+
+prefix: "&8[&f&lSpawner&c&lX&8]&r"
+
+# Comandos
+commands:
+  reload:
+    success: "{prefix} &aConfiguração recarregada com sucesso!"
+    error: "{prefix} &cErro ao recarregar a configuração!"
+  give:
+    success: "{prefix} &aVocê deu &e{amount}x spawner de {type} para &e{player}&a!"
+    received: "{prefix} &aVocê recebeu &e{amount}x spawner de {type}&a!"
+    invalid-mob: "{prefix} &cTipo de mob inválido: &e{type}"
+    player-not-found: "{prefix} &cJogador não encontrado: &e{player}"
+  help:
+    header: "&8&m          &r &eSpawnerX - Ajuda &8&m          "
+    reload: "&e/spawnerx reload &7- Recarrega a configuração"
+    give: "&e/spawnerx give <player> <mob> &7- Dá um spawner"
+    shop: "&e/spawnerx shop &7- Abre a loja de spawners"
+    help: "&e/spawnerx help &7- Mostra esta ajuda"
+    footer: "&8&m                                    "
+  no-permission: "{prefix} &cVocê não tem permissão para usar este comando!"
+
+# Sistema de Quebra
+break:
+  wrong-tool: "{prefix} &cVocê não está usando uma ferramenta válida para quebrar spawners!"
+  no-silk-touch: "{prefix} &cVocê precisa de &eToque Suave &cpara quebrar spawners!"
+  no-permission: "{prefix} &cVocê não tem permissão para quebrar spawners!"
+  success: "{prefix} &aVocê quebrou um spawner de &e{type}&a!"
+  success-no-req: "{prefix} &eVocê quebrou o spawner de &6{type} &esem cumprir os requisitos!"
+  fail-chance: "{prefix} &cO spawner de &e{type} &cquebrou em pedaços (falha na chance de drop)!"
+
+# Sistema de Explosão
+explosion:
+  destroyed: "{prefix} &cUm spawner de &e{type} &cfoi destruído por uma explosão!"
+
+# Sistema de Spawner
+spawner:
+  placed: "{prefix} &aVocê colocou um spawner de &e{type}&a!"
+  stacked: "{prefix} &aVocê empilhou um spawner de &e{type}! Total: &e{amount}"
+  lore:
+    info: "&7Informações"
+    type: "&7Tipo: &f{type}"
+    rarity: "&7Raridade: {rarity_color}{rarity}"
+    stack: "&7Stack: &e{amount}"
+
+# Geral
+general:
+  invalid-usage: "{prefix} &cUso incorreto! Use: &e{usage}"
+
+# Menu de Interação
+menu:
+  title: "&8Informações: &e{type}"
+  info-item:
+    name: "&eSpawner de {type}"
+    environment: "&7Ambiente: {status}"
+  status:
+    valid: "&aVálido"
+    invalid: "&cInválido"
+  dynamic:
+    title: "&eEstatísticas em Tempo Real"
+    spawn-tick: "&7Tick de spawn: &e{delay} ticks"
+    spawn-time: "&7Tempo entre spawns: &e{min}s - {max}s"
+    status: "&7Status: {status}"
+    status-active: "&aAtivo"
+    status-inactive: "&cInativo (Sem players)"
+    footer: "&8(Atualizando em tempo real)"
+  owner-item:
+    name: "&f{player}"
+    lore: "&7Este spawner foi colocado por."
+
+# Shop
+shop:
+  disabled: "{prefix} &cA loja de spawners está desativada!"
+  only-players: "{prefix} &cApenas jogadores podem usar este comando!"
+  title:
+    categories: "&8Loja de Spawners"
+    category: "&8{category} &7(Página {page}/{pages})"
+  category:
+    lore: "&7Clique para ver"
+  item:
+    name: "{display_name}"
+    lore: "&7Preço: &e{price} {currency}\\n&bClique para comprar"
+  nav:
+    prev: "&ePágina Anterior"
+    next: "&ePróxima Página"
+    back: "&eVoltar às Categorias"
+    page: "&7Página &e{page}&7/&e{pages}"
+  buy:
+    success: "{prefix} &aVocê comprou um spawner de &e{type} &apor &e{price} {currency}&a!"
+    not-enough-xp: "{prefix} &cVocê precisa de &e{price} {currency} &cpara comprar!"
+    invalid-item: "{prefix} &cItem de loja inválido!"

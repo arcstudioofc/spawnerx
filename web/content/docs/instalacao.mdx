@@ -1,0 +1,48 @@
+---
+title: Instalação
+description: Instalação completa, primeira execução e verificação do SpawnerX.
+icon: FiDownloadCloud
+---
+
+<Callout type="info" title="Requisitos">
+  Paper/Bukkit 1.21.x e Java 25 ou superior.
+</Callout>
+
+## Instalação (passo a passo)
+
+1. Baixe o `SpawnerX.jar` [aqui](/download).
+2. Coloque o arquivo em `plugins/`.
+3. Inicie ou reinicie o servidor.
+4. Ajuste `config.yml`, `shop.yml` e `locale/*.yml`.
+5. Use `/spawnerx reload` para aplicar alterações.
+
+## Primeira execução
+
+Na primeira inicialização, o plugin cria os arquivos padrão em `plugins/SpawnerX/`. Ele também registra listeners e habilita o menu de interação, stacking, distância ativa e shop (se habilitado).
+
+## Arquivos gerados
+
+- `config.yml` (todas as regras principais)
+- `shop.yml` (configuração da loja)
+- `locale/pt_BR.yml` e `locale/en_US.yml` (mensagens)
+
+> **Observação**: o locale padrão do `config.yml` é `en_US`. Altere para `pt_BR` se quiser mensagens em português.
+
+## Configuração inicial recomendada
+
+Ajuste estes pontos primeiro:
+
+- `locale` (idioma do plugin)
+- `break.tools` e `break.silk-touch` (regras de quebra)
+- `spawner.stacking-enabled` e `spawner.max-stack-size`
+- `spawner.distance-active` (distância para ativação)
+- `rarities` (raridades e cores por mob)
+
+<img
+  src="/images/console.png"
+  alt="Console com SpawnerX iniciando"
+/>
+
+<Callout type="warn" title="Sempre recarregue">
+  Depois de editar qualquer arquivo, use `/spawnerx reload`.
+</Callout>

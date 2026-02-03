@@ -1,0 +1,97 @@
+---
+title: Spawners, Stacking e Drops
+description: Como funcionam os spawners no mundo e no inventário.
+icon: FiLayers
+---
+
+<Callout type="info" title="Resumo">
+  O SpawnerX usa um stack interno salvo no NBT do item. Esse stack influencia o nome, o holograma e a escala de spawn.
+</Callout>
+
+<Callout type="warn" title="SpawnerX vs Vanilla">
+  Recursos avançados (stack, holograma, distância ativa) só funcionam em spawners criados pelo SpawnerX.
+</Callout>
+
+## Item de spawner (NBT)
+
+Cada spawner criado pelo plugin guarda:
+
+- Tipo de entidade (`spawner_entity`)
+- Stack interno (`spawner_stack`)
+
+Isso significa que **1 item** pode representar **vários spawners** no stack interno.
+
+## Nome e holograma
+
+O nome do item e o holograma usam o formato:
+
+```
+{stack_size}x {display_name}
+```
+
+- O `display_name` vem do `spawner.display-name`.
+- O prefixo `{stack_size}x` é sempre adicionado pelo plugin.
+- O holograma é criado usando `TextDisplay` (altura ~1.2 acima do bloco).
+
+## Colocação e empilhamento no mundo
+
+Quando você coloca um spawner:
+
+- Se o bloco alvo é um spawner do **mesmo tipo** e o stacking está ativado, ele soma stacks.
+- O stack é limitado por `spawner.max-stack-size`.
+- Se ultrapassar o limite, o restante volta para o jogador como item.
+
+> O plugin salva o **owner** (quem colocou) e o **stack** no bloco.
+
+## Stacking em inventário
+
+Com `spawner.stacking-enabled = true`, o plugin força o empilhamento de itens de spawner **apenas pelo tipo de entidade**:
+
+- Itens com o mesmo `EntityType` empilham, mesmo com NBT diferente.
+- O limite também é `spawner.max-stack-size`.
+
+## Quebra de spawners
+
+Regras principais:
+
+- Permissão necessária: `spawnerx.spawner.break`
+- Ferramentas válidas: `break.tools`
+- Silk Touch: `break.silk-touch`
+
+### Quando os requisitos não são atendidos
+
+- Com `allow-break-without-requirements = true`, a quebra é permitida, mas **não há drop**.
+- Com `false`, a quebra é cancelada.
+
+### Chance de drop
+
+- A chance é definida por `break.drop-chance` (0 a 100).
+- Se `break.drop-to-inventory = true`, o item vai para o inventário (ou cai no chão se estiver cheio).
+
+### Quebra de spawner empilhado
+
+- **Agachado (Shift)**: dropa **todo o stack** em um item.
+- **Sem agachar**: reduz o stack em 1 e mantém o bloco no mundo.
+
+## Explosões
+
+Quando um spawner explode:
+
+- Se `explosion.allow-drop = true`, o plugin calcula drop **por spawner no stack**.
+- Cada unidade do stack rola a chance `explosion.drop-chance` individualmente.
+- O drop é sempre no chão (config `explosion.drop-to-inventory` existe, mas não é aplicado hoje).
+
+## Escala de spawn por stack
+
+Quando um spawner está empilhado, o plugin multiplica:
+
+- `spawnCount`
+- `maxNearbyEntities`
+
+Exemplo: se o spawner base gera 4 mobs e o stack é 3, ele passa a gerar **12 mobs por ciclo**.
+
+## Distância ativa
+
+- A distância é configurada em `spawner.distance-active`.
+- O spawn é **cancelado** quando não há jogadores dentro do alcance.
+- Apenas spawners do SpawnerX (com NBT de stack) são afetados.

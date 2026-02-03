@@ -1,0 +1,50 @@
+---
+title: Comandos e Permissões
+description: Lista oficial de comandos, uso e permissões do SpawnerX.
+icon: FiShield
+---
+
+<Callout type="info" title="Comando principal">
+  Use `/spawnerx` ou o atalho `/sx`.
+</Callout>
+
+## Comandos
+
+| Comando | Descrição | Permissão |
+| --- | --- | --- |
+| `/spawnerx` | Mostra ajuda geral | - |
+| `/spawnerx reload` | Recarrega config e locale | `spawnerx.admin` |
+| `/spawnerx give <player> <mob> [quantidade]` | Dá spawner para jogador | `spawnerx.admin` |
+| `/spawnerx shop` | Abre a loja de spawners | `spawnerx.shop` |
+| `/spawnerx help` | Mostra ajuda | - |
+
+### Exemplos
+
+```bash
+/spawnerx give Israel zombie 5
+/spawnerx reload
+/spawnerx shop
+```
+
+### Detalhes do /give
+
+- O parâmetro **quantidade** representa o **número de itens**.
+- Cada item criado possui **stack interno 1** (NBT do SpawnerX).
+- O empilhamento em inventário é controlado por `spawner.max-stack-size`.
+
+## Permissões
+
+| Permissão | Descrição | Padrão |
+| --- | --- | --- |
+| `spawnerx.admin` | Comandos administrativos (reload, give) | OP |
+| `spawnerx.shop` | Acesso à loja de spawners | true |
+| `spawnerx.spawner.break` | Quebrar spawners com requisitos | true |
+| `spawnerx.spawner.break.explosion` | Drop de spawner em explosões | true |
+
+<Callout type="warn" title="Boas práticas">
+  Mantenha `spawnerx.admin` apenas para staff.
+</Callout>
+
+<Callout type="info" title="Observação">
+  A permissão `spawnerx.spawner.break.explosion` está declarada, mas o drop por explosão não verifica essa permissão atualmente.
+</Callout>
