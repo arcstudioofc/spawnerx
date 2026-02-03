@@ -75,7 +75,7 @@ export default function HomePage() {
               href="/download"
               className="inline-flex items-center justify-center rounded-full border border-fd-border bg-fd-card px-6 py-3 text-sm font-semibold text-fd-foreground transition hover:border-fd-primary/60"
             >
-              Instalação
+              Download rápido
             </Link>
           </div>
 
